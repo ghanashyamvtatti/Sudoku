@@ -7,7 +7,6 @@ public class Backtrack {
 	 */
 	public static void main(String args[]){
 		int puzzle[][] = new int[9][9];
-		puzzle[0][0] = 1;
 		solve(puzzle);
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++)
@@ -45,6 +44,7 @@ public class Backtrack {
 	 */
 	public static boolean solve(int puzzle[][]){
 		boolean Full = true;
+		//Find first element with value zero
 		int row = -1, col = -1;
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -60,6 +60,7 @@ public class Backtrack {
 		}
 		if(Full)
 			return true;
+		//Try inserting number and check if it leads to a solution
 		for(int i = 1; i < 10; i++){
 			if(check(puzzle,row, col,i)){
 				puzzle[row][col] = i;
